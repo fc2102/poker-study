@@ -1,0 +1,84 @@
+<!-- Turn — teoría -->
+<div id="tab-turn" class="section">
+  <div class="section-title">TURN</div>
+  <div class="section-sub">Teoría Turn — BTN IP</div>
+
+  <div class="street-header">
+    <span class="street-badge street-turn">TURN</span>
+    <span style="color:var(--muted);font-size:0.85rem;">Dinámica y ajustes de rango</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Cuando el rival overcalllea en Flop</div>
+    <div class="insight">
+      <span class="insight-icon">🔥</span>
+      <p>Aquí te están <strong>overcalleando</strong> — hay que ser muy agresivo en turn. Su rango está debilitado y sobre-representado en manos medias que no pueden seguir pagando mucho.</p>
+    </div>
+    <div class="solver-img-wrap">
+      <div class="solver-img-label">📊 Solver — Turn agresivo tras overcall en flop</div>
+      <img src="images/image7.png" alt="Turn overcall" onclick="openLightbox(this)">
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Manos Concretas en Turn</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        KTo con el K del palo
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">🔒</span>
+          <p><strong>KTo con el K del palo no se tira ni peter.</strong> Tiene suficiente equity y blockers para continuar. Es un call claro independientemente del tamaño.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Q9o, 6x: fold claro
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">🚫</span>
+          <p><strong>Q9o, 6x → ni de coña.</strong> Sin suficiente equity ni posibilidad de mejorar a manos ganadoras. Fold sin dudar.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        K3s — Cuándo betear vs check
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">🎲</span>
+          <p>Cuanto más <strong>agresivo</strong> sea el tipo, más incentivo de betear (no le das la vuelta fácilmente en turn). Cuanto más <strong>pasivo</strong>, más fácil es robar en turn cuando pone face-up su mano.</p>
+        </div>
+        <div class="insight">
+          <span class="insight-icon">⚠️</span>
+          <p>K3 de diamantes: <strong>chequear</strong> porque no le gusta que le check-raiseen. Pero 87 de diamantes sí prefiere betear porque no sufre al raise y tiene más EQ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Delayed CBet en Turn</div>
+    <div class="insight">
+      <span class="insight-icon">⏰</span>
+      <p>En boards donde no hay thin value, si el rival paga más o menos bien pero en la delayed apuesta de más los Ax (debería chequear mucho más thin value), los manos de 0EQ tienen <strong>más incentivo a delayear</strong>.</p>
+    </div>
+    <div class="insight">
+      <span class="insight-icon">💡</span>
+      <p>En este tipo de boards los <strong>bluffs funcionan mejor a la delayed</strong>. Rainbow → mucho más tamaño pequeño. Con FD → aumentar más el tamaño.</p>
+    </div>
+    <div class="solver-img-wrap">
+      <div class="solver-img-label">📊 Solver — Delayed CBet Turn</div>
+      <img src="images/image9.png" alt="Delayed cbet" onclick="openLightbox(this)">
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TURN EJEMPLOS ══════════ -->

@@ -1,0 +1,87 @@
+<!-- River — teoría -->
+<div id="tab-river" class="section">
+  <div class="section-title">RIVER</div>
+  <div class="section-sub">Teoría River — BTN IP</div>
+
+  <div class="street-header">
+    <span class="street-badge street-river">RIVER</span>
+    <span style="color:var(--muted);font-size:0.85rem;">Construcción de rango final</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Dinámica Tras Check-Check en Flop</div>
+    <div class="solver-img-wrap">
+      <div class="solver-img-label">📊 Solver — Check-Check flop scenario</div>
+      <img src="images/image3.png" alt="Check check" onclick="openLightbox(this)">
+    </div>
+    <div class="insight" style="margin-top:1rem;">
+      <span class="insight-icon">🧠</span>
+      <p>Tras check-check el BB va a <strong>pobretear de más</strong> porque ha checkeado puro QJ, QT... no lo va a hacer en realidad. También los FDs van mixed y no va a valuebet tanto como el solver mete A6o o A7o.</p>
+    </div>
+    <div class="insight">
+      <span class="insight-icon">💡</span>
+      <p>Con todo esto vemos que <strong>tienen más incentivo de chequear manos medias</strong> del estilo A4, A3 para que el BB se pase blufeando.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Construcción de Rango de Value en River</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Sin thin value — ¿Qué hacer?
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">📊</span>
+          <p>No hay thin value, y el rival paga más o menos bien. Entonces si el rival paga razonablemente, los bluffs puros tienen más incentivo con delayed bets ya que el rival no ajustará su rango correctamente.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Zona de FDs en River
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">♦️</span>
+          <p>Los FDs van <strong>mixed</strong> en river — no sólo bluffs, algunos se convierten en value, otros siguen siendo bluffs dependiendo del runout y el rango del rival.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Axo Bajos — No sobrevalorar
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">⚠️</span>
+          <p><strong>Axo bajos — no sobrevalorarlos</strong> y meterlos bastantes (A4o-A7o muy a menudo). Son buenos bluffs en muchos runouts pero en river es importante no exagerar su valor como mano hecha.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Zona FDs — Manos que Check vs Bet</div>
+    <div class="two-col">
+      <div>
+        <div class="label" style="font-family:'Space Mono';font-size:0.65rem;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:0.6rem;">⏸️ Preferir Check</div>
+        <span class="hand-chip chip-check">AK de FD</span>
+        <span class="hand-chip chip-check">KQ de FD</span>
+        <p style="font-size:0.82rem;color:var(--muted);margin-top:0.5rem;line-height:1.5;">Bloqueas Axo con el palo (inelástico), bloqueas set up favorable. No sabemos si son value o bluff.</p>
+      </div>
+      <div>
+        <div class="label" style="font-family:'Space Mono';font-size:0.65rem;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:0.6rem;">✅ Preferir Bet</div>
+        <span class="hand-chip chip-bluff">87♦</span>
+        <span class="hand-chip chip-bluff">86♦</span>
+        <span class="hand-chip chip-value">FDs con EQ</span>
+        <p style="font-size:0.82rem;color:var(--muted);margin-top:0.5rem;line-height:1.5;">Más EQ, no sufren al raise, generan fold equity en manos medias del rival.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ RIVER EJEMPLOS ══════════ -->

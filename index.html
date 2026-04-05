@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRP IP BTN vs BB — Poker Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+</head>
+<body>
+
+<header>
+  <div class="logo">BTN vs BB <span>SRP IP</span></div>
+  <nav>
+    <button class="tab active"      onclick="showTab('teoria',this)">📚 Teoría Flop</button>
+    <button class="tab"             onclick="showTab('flop-ej',this)">🃏 Flop Ejemplos</button>
+    <button class="tab"             onclick="showTab('turn',this)">📚 Teoría Turn</button>
+    <button class="tab"             onclick="showTab('turn-ej',this)">🔄 Ej. Turn</button>
+    <button class="tab"             onclick="showTab('river',this)">📚 Teoría River</button>
+    <button class="tab"             onclick="showTab('river-ej',this)">🌊 Ej. River</button>
+    <button class="tab"             onclick="showTab('quiz',this)">🎯 Práctica</button>
+    <button class="tab"             onclick="showTab('anki',this)">⚡ Repaso</button>
+    <button class="tab"             onclick="showTab('heatmap',this)">🔥 Rangos</button>
+  </nav>
+</header>
+
+<main>
+
+
+<!-- Teoría Flop — contenido estático -->
+<div id="tab-teoria" class="section active">
+  <div class="section-title">TEORÍA FLOP</div>
+        <div class="section-sub">BTN vs BB · Single Raised Pot · In Position</div>
+
+        <div class="card">
+            <div class="card-title">Reglas Generales</div>
+            <div class="rule-grid">
+                <div class="rule-card">
+                    <div class="label">🃏 CBet</div>
+                    <p>Si dudamos de si cbet<strong>ear o no</strong>, hacerlo.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="label">📏 Tamaño</div>
+                    <p>Si dudamos de si apostar <strong>grande o pequeño</strong>, hacerlo pequeño.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="label">⚠️ Overfold</div>
+                    <p>Si el rival <strong>overfoldea</strong>, cuidado con las demás calles — ajustar rango.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="label">💰 EQ y tamaño</div>
+                    <p>A <strong>más equity</strong>, más quieres agrandar el bote.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Insights Clave</div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p><mark>Hay que ganar EV, no ganar la MANO.</mark> El objetivo no es proteger la mano sino maximizar EV en cada spot.</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p><mark>Cuanto más fácil sea de probetear de bluff en turn, más preferiremos apostarlos para evitar ese bluffing spot.</mark></p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p>A <strong>menos EQ → menos BET</strong> (controlar bote). A <strong>más EQ → más BET</strong> (agrandar bote).</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p>Siendo BTN, preferimos board <strong>rainbow</strong> porque como tienes más EQ y más estático sea el board, más veces se mantendrá esa equity hasta el river.</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p>Cuando pasamos de un board rainbow a FD siempre sera mas polarizado, ya sea aumentando el tamaño/ chequeando más.</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p>Usar un tamaño mas pequeño hace que podamos tener mas cbet</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Estrategia General de Tamaños — Flop</div>
+            <table class="size-table">
+                <tr>
+                    <th>Tipo de Board</th>
+                    <th>Tamaño</th>
+                    <th>Estrategia</th>
+                </tr>
+                <tr>
+                    <td><strong>3 Broadways</strong></td>
+                    <td>Pequeño (40%)</td>
+                    <td><span class="badge badge-range">Mucho bet</span> Mucho bet a 40%</td>
+                </tr>
+                <tr>
+                    <td><strong>Broadway-Mid-Low (K72)</strong></td>
+                    <td>25%</td>
+                    <td><span class="badge badge-range">Range</span> Haremos range</td>
+                </tr>
+                <tr>
+                    <td>Boards <strong>Doblados Altos</strong></td>
+                    <td>25%</td>
+                    <td><span class="badge badge-range">Range</span> bet</td>
+                </tr>
+                <tr>
+                    <td>Boards <strong>Doblados Medios</strong></td>
+                    <td>25%/40%</td>
+                    <td><span class="badge badge-polar">Polarizado</span> No lo mismo K77 que 668ss</td>
+                </tr>
+                <tr>
+                    <td>Boards <strong>Doblados Bajos</strong></td>
+                    <td>40%</td>
+                    <td><span class="badge badge-range">Range</span> bet</td>
+                </tr>
+                <tr>
+                    <td><strong>765fd</strong> (muy coordinado)</td>
+                    <td>40%</td>
+                    <td><span class="badge badge-polar">Polarizado</span>Tanta coordinación → muchas cartas te joden</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- TABLA DE EJEMPLOS CON CARTAS -->
+        <div class="card">
+            <div class="card-title">Ejemplos de Boards — Aplicación Práctica</div>
+            <style>
+              .ex-table { width:100%; border-collapse:collapse; font-size:0.87rem; }
+              .ex-table th { background:var(--bg3); color:var(--accent); font-family:'Space Mono',monospace;
+                font-size:0.6rem; letter-spacing:1.5px; text-transform:uppercase; padding:0.6rem 0.9rem;
+                text-align:left; border-bottom:1px solid var(--border); }
+              .ex-table td { padding:0.65rem 0.9rem; border-bottom:1px solid rgba(37,43,59,0.4); vertical-align:middle; }
+              .ex-table tr:last-child td { border-bottom:none; }
+              .ex-table tr:hover td { background:rgba(255,255,255,0.02); }
+              /* mini playing cards */
+              .mc { display:inline-flex; flex-direction:column; align-items:center; justify-content:center;
+                width:28px; height:38px; background:#fff; border-radius:5px; font-family:'Space Mono',monospace;
+                font-size:0.72rem; font-weight:700; line-height:1.1;
+                box-shadow:0 1px 4px rgba(0,0,0,0.4); margin-right:2px; vertical-align:middle; flex-shrink:0; }
+              .mc.r { color:#e03e3e; }
+              .mc.b { color:#111; }
+              .mc .ms { font-size:0.85rem; }
+              .board-ex { display:inline-flex; align-items:center; gap:2px; }
+              .ex-strat-pill { display:inline-block; font-family:'Space Mono',monospace; font-size:0.62rem;
+                letter-spacing:1px; text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:5px; white-space:nowrap; }
+              .pill-range { background:rgba(80,250,123,0.15); color:var(--accent4); border:1px solid rgba(80,250,123,0.25); }
+              .pill-polar { background:rgba(255,107,107,0.15); color:var(--accent3); border:1px solid rgba(255,107,107,0.25); }
+              .pill-neutral { background:rgba(74,158,255,0.15); color:var(--accent2); border:1px solid rgba(74,158,255,0.25); }
+              .ex-note { font-size:0.8rem; color:var(--muted); margin-top:0.2rem; }
+            </style>
+
+            <table class="ex-table">
+              <tr>
+                <th>Board</th>
+                <th>Tipo</th>
+                <th>Size</th>
+                <th>Estrategia</th>
+                <th>Nota clave</th>
+              </tr>
+
+              <!-- 3 Broadways -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc b">K<span class="ms">♠</span></div>
+                    <div class="mc r">Q<span class="ms">♥</span></div>
+                    <div class="mc r">J<span class="ms">♦</span></div>
+                  </div>
+                </td>
+                <td><strong>3 Broadways</strong></td>
+                <td><span class="badge badge-range">40%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">Mucho bet, board conecta bien con BTN</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">A<span class="ms">♦</span></div>
+                    <div class="mc b">K<span class="ms">♣</span></div>
+                    <div class="mc b">T<span class="ms">♠</span></div>
+                  </div>
+                </td>
+                <td><strong>3 Broadways</strong></td>
+                <td><span class="badge badge-range">40%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">Ventaja de equity BTN clara</td>
+              </tr>
+
+              <!-- Broadway-Mid-Low -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc b">K<span class="ms">♠</span></div>
+                    <div class="mc r">7<span class="ms">♦</span></div>
+                    <div class="mc r">2<span class="ms">♥</span></div>
+                  </div>
+                </td>
+                <td><strong>Broadway-Mid-Low</strong></td>
+                <td><span class="badge badge-range">25%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">Dry rainbow, range con size pequeño</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">A<span class="ms">♥</span></div>
+                    <div class="mc b">6<span class="ms">♠</span></div>
+                    <div class="mc r">2<span class="ms">♦</span></div>
+                  </div>
+                </td>
+                <td><strong>Broadway-Mid-Low</strong></td>
+                <td><span class="badge badge-range">25%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">Dominio total BTN, range pequeño</td>
+              </tr>
+
+              <!-- Doblados Altos -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc b">K<span class="ms">♣</span></div>
+                    <div class="mc b">K<span class="ms">♠</span></div>
+                    <div class="mc r">7<span class="ms">♦</span></div>
+                  </div>
+                </td>
+                <td><strong>Doblado Alto</strong></td>
+                <td><span class="badge badge-range">25%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">Board estático, range 25% eficiente</td>
+              </tr>
+
+              <!-- Doblados Medios -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">7<span class="ms">♥</span></div>
+                    <div class="mc r">7<span class="ms">♦</span></div>
+                    <div class="mc b">2<span class="ms">♣</span></div>
+                  </div>
+                </td>
+                <td><strong>Doblado Medio</strong></td>
+                <td><span class="badge badge-polar">25-40%</span></td>
+                <td><span class="ex-strat-pill pill-polar">Polarizado</span></td>
+                <td class="ex-note">No lo mismo que 668ss, analizar</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc b">6<span class="ms">♠</span></div>
+                    <div class="mc b">6<span class="ms">♣</span></div>
+                    <div class="mc r">8<span class="ms">♥</span></div><span style="font-family:'Space Mono';font-size:0.6rem;color:var(--accent3);margin-left:3px;">ss</span>
+                  </div>
+                </td>
+                <td><strong>Doblado Medio</strong></td>
+                <td><span class="badge badge-polar">40%</span></td>
+                <td><span class="ex-strat-pill pill-polar">Polarizado</span></td>
+                <td class="ex-note">Con flush draw → tamaño mayor</td>
+              </tr>
+
+              <!-- Doblados Bajos -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">3<span class="ms">♥</span></div>
+                    <div class="mc r">3<span class="ms">♦</span></div>
+                    <div class="mc b">9<span class="ms">♣</span></div>
+                  </div>
+                </td>
+                <td><strong>Doblado Bajo</strong></td>
+                <td><span class="badge badge-range">40%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">BB no conecta, range grande</td>
+              </tr>
+
+              <!-- Muy coordinado -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">7<span class="ms">♥</span></div>
+                    <div class="mc b">6<span class="ms">♠</span></div>
+                    <div class="mc r">5<span class="ms">♦</span></div><span style="font-family:'Space Mono';font-size:0.6rem;color:var(--accent3);margin-left:3px;">fd</span>
+                  </div>
+                </td>
+                <td><strong>Muy coordinado</strong></td>
+                <td><span class="badge badge-polar">40%</span></td>
+                <td><span class="ex-strat-pill pill-polar">Polarizado</span></td>
+                <td class="ex-note">Demasiadas cartas que dañan al BTN</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">8<span class="ms">♦</span></div>
+                    <div class="mc r">6<span class="ms">♥</span></div>
+                    <div class="mc r">5<span class="ms">♥</span></div>
+                  </div>
+                </td>
+                <td><strong>Muy coordinado</strong></td>
+                <td><span class="badge badge-polar">40%</span></td>
+                <td><span class="ex-strat-pill pill-polar">Polarizado</span></td>
+                <td class="ex-note">FD + OESD → polarizar, no range</td>
+              </tr>
+
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Lógica del Tamaño Grande</div>
+            <div class="insight">
+                <span class="insight-icon">🏆</span>
+                <p>Usar <strong>tamaño grande</strong> cuando: ventaja de nuts (overpairs, sets…), el value es vulnerable, no hay mucha mano media valuebeteable.</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">📏</span>
+                <p>Hay una zona elástica que paga a pequeño pero <strong>no a grande</strong>. Con medio bote o pequeño no castigas suficiente.</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">💡</span>
+                <p>EV entre 75% y 110% es prácticamente el mismo, pero jugar <strong>range no</strong></p>
+            </div>
+        </div>
+        
+</div>
+
+<!-- ══════════ FLOP EJEMPLOS ══════════ -->
+
+
+<div id="tab-flop-ej" class="section">
+  <div class="section-title">FLOP EJEMPLOS</div>
+  <div class="section-sub">Análisis board a board con solver</div>
+  <div id="flop-ej-root"></div>
+</div>
+
+<!-- ══════════ TURN ══════════ -->
+
+<!-- Turn — teoría -->
+<div id="tab-turn" class="section">
+  <div class="section-title">TURN</div>
+  <div class="section-sub">Teoría Turn — BTN IP</div>
+
+  <div class="street-header">
+    <span class="street-badge street-turn">TURN</span>
+    <span style="color:var(--muted);font-size:0.85rem;">Dinámica y ajustes de rango</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Cuando el rival overcalllea en Flop</div>
+    <div class="insight">
+      <span class="insight-icon">🔥</span>
+      <p>Aquí te están <strong>overcalleando</strong> — hay que ser muy agresivo en turn. Su rango está debilitado y sobre-representado en manos medias que no pueden seguir pagando mucho.</p>
+    </div>
+    <div class="solver-img-wrap">
+      <div class="solver-img-label">📊 Solver — Turn agresivo tras overcall en flop</div>
+      <img src="images/image7.png" alt="Turn overcall" onclick="openLightbox(this)">
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Manos Concretas en Turn</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        KTo con el K del palo
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">🔒</span>
+          <p><strong>KTo con el K del palo no se tira ni peter.</strong> Tiene suficiente equity y blockers para continuar. Es un call claro independientemente del tamaño.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Q9o, 6x: fold claro
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">🚫</span>
+          <p><strong>Q9o, 6x → ni de coña.</strong> Sin suficiente equity ni posibilidad de mejorar a manos ganadoras. Fold sin dudar.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        K3s — Cuándo betear vs check
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">🎲</span>
+          <p>Cuanto más <strong>agresivo</strong> sea el tipo, más incentivo de betear (no le das la vuelta fácilmente en turn). Cuanto más <strong>pasivo</strong>, más fácil es robar en turn cuando pone face-up su mano.</p>
+        </div>
+        <div class="insight">
+          <span class="insight-icon">⚠️</span>
+          <p>K3 de diamantes: <strong>chequear</strong> porque no le gusta que le check-raiseen. Pero 87 de diamantes sí prefiere betear porque no sufre al raise y tiene más EQ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Delayed CBet en Turn</div>
+    <div class="insight">
+      <span class="insight-icon">⏰</span>
+      <p>En boards donde no hay thin value, si el rival paga más o menos bien pero en la delayed apuesta de más los Ax (debería chequear mucho más thin value), los manos de 0EQ tienen <strong>más incentivo a delayear</strong>.</p>
+    </div>
+    <div class="insight">
+      <span class="insight-icon">💡</span>
+      <p>En este tipo de boards los <strong>bluffs funcionan mejor a la delayed</strong>. Rainbow → mucho más tamaño pequeño. Con FD → aumentar más el tamaño.</p>
+    </div>
+    <div class="solver-img-wrap">
+      <div class="solver-img-label">📊 Solver — Delayed CBet Turn</div>
+      <img src="images/image9.png" alt="Delayed cbet" onclick="openLightbox(this)">
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TURN EJEMPLOS ══════════ -->
+
+<!-- Turn Ejemplos — contenedor dinámico -->
+<div id="tab-turn-ej" class="section">
+  <div class="section-title">EJEMPLOS TURN</div>
+  <div class="section-sub">Análisis de spots en Turn</div>
+  <div id="turn-ej-root"></div>
+</div>
+
+<!-- ══════════ RIVER ══════════ -->
+
+<!-- River — teoría -->
+<div id="tab-river" class="section">
+  <div class="section-title">RIVER</div>
+  <div class="section-sub">Teoría River — BTN IP</div>
+
+  <div class="street-header">
+    <span class="street-badge street-river">RIVER</span>
+    <span style="color:var(--muted);font-size:0.85rem;">Construcción de rango final</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Dinámica Tras Check-Check en Flop</div>
+    <div class="solver-img-wrap">
+      <div class="solver-img-label">📊 Solver — Check-Check flop scenario</div>
+      <img src="images/image3.png" alt="Check check" onclick="openLightbox(this)">
+    </div>
+    <div class="insight" style="margin-top:1rem;">
+      <span class="insight-icon">🧠</span>
+      <p>Tras check-check el BB va a <strong>pobretear de más</strong> porque ha checkeado puro QJ, QT... no lo va a hacer en realidad. También los FDs van mixed y no va a valuebet tanto como el solver mete A6o o A7o.</p>
+    </div>
+    <div class="insight">
+      <span class="insight-icon">💡</span>
+      <p>Con todo esto vemos que <strong>tienen más incentivo de chequear manos medias</strong> del estilo A4, A3 para que el BB se pase blufeando.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Construcción de Rango de Value en River</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Sin thin value — ¿Qué hacer?
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">📊</span>
+          <p>No hay thin value, y el rival paga más o menos bien. Entonces si el rival paga razonablemente, los bluffs puros tienen más incentivo con delayed bets ya que el rival no ajustará su rango correctamente.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Zona de FDs en River
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">♦️</span>
+          <p>Los FDs van <strong>mixed</strong> en river — no sólo bluffs, algunos se convierten en value, otros siguen siendo bluffs dependiendo del runout y el rango del rival.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Axo Bajos — No sobrevalorar
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">⚠️</span>
+          <p><strong>Axo bajos — no sobrevalorarlos</strong> y meterlos bastantes (A4o-A7o muy a menudo). Son buenos bluffs en muchos runouts pero en river es importante no exagerar su valor como mano hecha.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Zona FDs — Manos que Check vs Bet</div>
+    <div class="two-col">
+      <div>
+        <div class="label" style="font-family:'Space Mono';font-size:0.65rem;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:0.6rem;">⏸️ Preferir Check</div>
+        <span class="hand-chip chip-check">AK de FD</span>
+        <span class="hand-chip chip-check">KQ de FD</span>
+        <p style="font-size:0.82rem;color:var(--muted);margin-top:0.5rem;line-height:1.5;">Bloqueas Axo con el palo (inelástico), bloqueas set up favorable. No sabemos si son value o bluff.</p>
+      </div>
+      <div>
+        <div class="label" style="font-family:'Space Mono';font-size:0.65rem;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:0.6rem;">✅ Preferir Bet</div>
+        <span class="hand-chip chip-bluff">87♦</span>
+        <span class="hand-chip chip-bluff">86♦</span>
+        <span class="hand-chip chip-value">FDs con EQ</span>
+        <p style="font-size:0.82rem;color:var(--muted);margin-top:0.5rem;line-height:1.5;">Más EQ, no sufren al raise, generan fold equity en manos medias del rival.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ RIVER EJEMPLOS ══════════ -->
+
+<!-- River Ejemplos — contenedor dinámico -->
+<div id="tab-river-ej" class="section">
+  <div class="section-title">EJEMPLOS RIVER</div>
+  <div class="section-sub">Análisis de spots en River</div>
+  <div id="river-ej-root"></div>
+</div>
+
+<!-- ══════════ QUIZ ══════════ -->
+
+<!-- Quiz — preguntas de repaso -->
+<div id="tab-quiz" class="section">
+  <div class="section-title">PRÁCTICA</div>
+  <div class="section-sub">Pon a prueba tu conocimiento</div>
+  <div class="quiz-wrap">
+    <div class="quiz-progress">
+      <div>
+        <div class="prog-text" id="quiz-prog-text">Pregunta 1 / 15</div>
+        <div class="prog-bar-track"><div class="prog-bar-fill" id="quiz-prog-bar" style="width:0%"></div></div>
+      </div>
+      <div class="score-badge" id="quiz-score-badge">✓ 0 / ✗ 0</div>
+    </div>
+    <div id="quiz-container"></div>
+    <div class="quiz-result" id="quiz-result">
+      <div class="result-score" id="result-pct">—</div>
+      <div class="result-label">de respuestas correctas</div>
+      <div class="result-msg" id="result-msg">—</div>
+      <button class="restart-btn" onclick="restartQuiz()">↺ Volver a empezar</button>
+    </div>
+  </div>
+</div>
+
+</header>
+
+<main>
+
+
+<!-- ══════════ FLOP EJEMPLOS ══════════ -->
+<div id="tab-flop-ej" class="section">
+  <div class="section-title">FLOP EJEMPLOS</div>
+  <div class="section-sub">Análisis board a board con solver</div>
+  <div id="flop-ej-root"></div>
+</div>
+
+<!-- ══════════ TURN ══════════ -->
+<div id="tab-turn" class="section">
+  <div class="section-title">TURN</div>
+  <div class="section-sub">Teoría Turn — BTN IP</div>
+  <div class="section-title">TURN</div>
+  <div class="section-sub">Estrategia en el Turn — Ajustes tras el Flop</div>
+
+  <div class="street-header">
+    <span class="street-badge street-turn">TURN</span>
+    <span style="color:var(--muted);font-size:0.85rem;">Dinámica y ajustes de rango</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Cuando el rival overcalllea en Flop</div>
+    <div class="insight">
+      <span class="insight-icon">🔥</span>
+      <p>Aquí te están <strong>overcalleando</strong> — hay que ser muy agresivo en turn. Su rango está debilitado y sobre-representado en manos medias que no pueden seguir pagando mucho.</p>
+    </div>
+    <div class="solver-img-wrap">
+      <div class="solver-img-label">📊 Solver — Turn agresivo tras overcall en flop</div>
+      <img src="images/image7.png" alt="Turn overcall" onclick="openLightbox(this)">
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Manos Concretas en Turn</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        KTo con el K del palo
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">🔒</span>
+          <p><strong>KTo con el K del palo no se tira ni peter.</strong> Tiene suficiente equity y blockers para continuar. Es un call claro independientemente del tamaño.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Q9o, 6x: fold claro
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">🚫</span>
+          <p><strong>Q9o, 6x → ni de coña.</strong> Sin suficiente equity ni posibilidad de mejorar a manos ganadoras. Fold sin dudar.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        K3s — Cuándo betear vs check
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">🎲</span>
+          <p>Cuanto más <strong>agresivo</strong> sea el tipo, más incentivo de betear (no le das la vuelta fácilmente en turn). Cuanto más <strong>pasivo</strong>, más fácil es robar en turn cuando pone face-up su mano.</p>
+        </div>
+        <div class="insight">
+          <span class="insight-icon">⚠️</span>
+          <p>K3 de diamantes: <strong>chequear</strong> porque no le gusta que le check-raiseen. Pero 87 de diamantes sí prefiere betear porque no sufre al raise y tiene más EQ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Delayed CBet en Turn</div>
+    <div class="insight">
+      <span class="insight-icon">⏰</span>
+      <p>En boards donde no hay thin value, si el rival paga más o menos bien pero en la delayed apuesta de más los Ax (debería chequear mucho más thin value), los manos de 0EQ tienen <strong>más incentivo a delayear</strong>.</p>
+    </div>
+    <div class="insight">
+      <span class="insight-icon">💡</span>
+      <p>En este tipo de boards los <strong>bluffs funcionan mejor a la delayed</strong>. Rainbow → mucho más tamaño pequeño. Con FD → aumentar más el tamaño.</p>
+    </div>
+    <div class="solver-img-wrap">
+      <div class="solver-img-label">📊 Solver — Delayed CBet Turn</div>
+      <img src="images/image9.png" alt="Delayed cbet" onclick="openLightbox(this)">
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TURN EJEMPLOS ══════════ -->
+<div id="tab-turn-ej" class="section">
+  <div class="section-title">EJEMPLOS TURN</div>
+  <div class="section-sub">Análisis de spots en Turn</div>
+  <div id="turn-ej-root"></div>
+</div>
+
+<!-- ══════════ RIVER ══════════ -->
+<div id="tab-river" class="section">
+  <div class="section-title">RIVER</div>
+  <div class="section-sub">Teoría River — BTN IP</div>
+  <div class="section-title">RIVER</div>
+  <div class="section-sub">Estrategia en el River — Valor y Bluffs</div>
+
+  <div class="street-header">
+    <span class="street-badge street-river">RIVER</span>
+    <span style="color:var(--muted);font-size:0.85rem;">Construcción de rango final</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Dinámica Tras Check-Check en Flop</div>
+    <div class="solver-img-wrap">
+      <div class="solver-img-label">📊 Solver — Check-Check flop scenario</div>
+      <img src="images/image3.png" alt="Check check" onclick="openLightbox(this)">
+    </div>
+    <div class="insight" style="margin-top:1rem;">
+      <span class="insight-icon">🧠</span>
+      <p>Tras check-check el BB va a <strong>pobretear de más</strong> porque ha checkeado puro QJ, QT... no lo va a hacer en realidad. También los FDs van mixed y no va a valuebet tanto como el solver mete A6o o A7o.</p>
+    </div>
+    <div class="insight">
+      <span class="insight-icon">💡</span>
+      <p>Con todo esto vemos que <strong>tienen más incentivo de chequear manos medias</strong> del estilo A4, A3 para que el BB se pase blufeando.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Construcción de Rango de Value en River</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Sin thin value — ¿Qué hacer?
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">📊</span>
+          <p>No hay thin value, y el rival paga más o menos bien. Entonces si el rival paga razonablemente, los bluffs puros tienen más incentivo con delayed bets ya que el rival no ajustará su rango correctamente.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Zona de FDs en River
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">♦️</span>
+          <p>Los FDs van <strong>mixed</strong> en river — no sólo bluffs, algunos se convierten en value, otros siguen siendo bluffs dependiendo del runout y el rango del rival.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAcc(this)">
+        Axo Bajos — No sobrevalorar
+        <span class="chevron">▼</span>
+      </button>
+      <div class="accordion-content">
+        <div class="insight">
+          <span class="insight-icon">⚠️</span>
+          <p><strong>Axo bajos — no sobrevalorarlos</strong> y meterlos bastantes (A4o-A7o muy a menudo). Son buenos bluffs en muchos runouts pero en river es importante no exagerar su valor como mano hecha.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Zona FDs — Manos que Check vs Bet</div>
+    <div class="two-col">
+      <div>
+        <div class="label" style="font-family:'Space Mono';font-size:0.65rem;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:0.6rem;">⏸️ Preferir Check</div>
+        <span class="hand-chip chip-check">AK de FD</span>
+        <span class="hand-chip chip-check">KQ de FD</span>
+        <p style="font-size:0.82rem;color:var(--muted);margin-top:0.5rem;line-height:1.5;">Bloqueas Axo con el palo (inelástico), bloqueas set up favorable. No sabemos si son value o bluff.</p>
+      </div>
+      <div>
+        <div class="label" style="font-family:'Space Mono';font-size:0.65rem;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:0.6rem;">✅ Preferir Bet</div>
+        <span class="hand-chip chip-bluff">87♦</span>
+        <span class="hand-chip chip-bluff">86♦</span>
+        <span class="hand-chip chip-value">FDs con EQ</span>
+        <p style="font-size:0.82rem;color:var(--muted);margin-top:0.5rem;line-height:1.5;">Más EQ, no sufren al raise, generan fold equity en manos medias del rival.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ RIVER EJEMPLOS ══════════ -->
+<div id="tab-river-ej" class="section">
+  <div class="section-title">EJEMPLOS RIVER</div>
+  <div class="section-sub">Análisis de spots en River</div>
+  <div id="river-ej-root"></div>
+</div>
+
+<!-- ══════════ QUIZ ══════════ -->
+<div id="tab-quiz" class="section">
+  <div class="section-title">PRÁCTICA</div>
+  <div class="section-sub">Pon a prueba tu conocimiento</div>
+  <div class="quiz-wrap">
+    <div class="quiz-progress">
+      <div>
+        <div class="prog-text" id="quiz-prog-text">Pregunta 1 / 15</div>
+        <div class="prog-bar-track"><div class="prog-bar-fill" id="quiz-prog-bar" style="width:0%"></div></div>
+      </div>
+      <div class="score-badge" id="quiz-score-badge">✓ 0 / ✗ 0</div>
+    </div>
+    <div id="quiz-container"></div>
+    <div class="quiz-result" id="quiz-result">
+      <div class="result-score" id="result-pct">—</div>
+      <div class="result-label">de respuestas correctas</div>
+      <div class="result-msg" id="result-msg">—</div>
+      <button class="restart-btn" onclick="restartQuiz()">↺ Volver a empezar</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════ ANKI ════ -->
+<div id="tab-anki" class="section">
+  <div class="section-title">REPASO RÁPIDO</div>
+  <div class="section-sub">Modo Anki — Memorización espaciada</div>
+  <div style="max-width:560px;margin:0 auto;text-align:center;padding:2rem 0;">
+    <div class="card" style="padding:2.5rem;">
+      <div style="font-size:3rem;margin-bottom:1rem;">⚡</div>
+      <div style="font-family:'Bebas Neue',cursive;font-size:2rem;letter-spacing:3px;color:var(--accent);margin-bottom:0.5rem;">REPASO RÁPIDO</div>
+      <p style="color:var(--muted);font-size:0.88rem;line-height:1.65;margin-bottom:1.75rem;">
+        Se mostrarán todos tus boards uno a uno.<br>
+        Intenta recordar la estrategia antes de revelar la respuesta.<br>
+        Califica cada card como <strong style="color:var(--accent4);">Fácil</strong> o <strong style="color:var(--accent3);">Difícil</strong> para programar el próximo repaso.
+      </p>
+      <button class="btn-save" onclick="openAnkiMode()" style="font-size:0.9rem;padding:0.85rem 2.5rem;border-radius:12px;">
+        ▶ Empezar sesión
+      </button>
+    </div>
+    <div id="anki-board-count" style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted);margin-top:1rem;letter-spacing:1px;"></div>
+  </div>
+</div>
+
+<!-- ════ HEATMAP ════ -->
+<div id="tab-heatmap" class="section">
+  <div class="section-title">RANGOS</div>
+  <div class="section-sub">Heatmap 13×13 por board</div>
+  <div id="heatmap-board-list"></div>
+</div>
+
+</main>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <h3 id="modal-title">Editar</h3>
+    <div id="modal-body"></div>
+    <div class="modal-btns">
+      <button class="btn-save" onclick="saveModal()">Guardar</button>
+      <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+  <script src="js/tabs.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/ejemplos.js"></script>
+  <script src="js/picker.js"></script>
+  <script src="js/dedup.js"></script>
+  <script src="js/card_picker.js"></script>
+  <script src="js/img_upload.js"></script>
+  <script src="js/extra_picker.js"></script>
+  <script src="js/resize.js"></script>
+  <script src="js/branch.js"></script>
+  <script src="js/board_edit.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/anki.js"></script>
+  <script src="js/heatmap.js"></script>
+  <script src="js/firebase.js" type="module"></script>
+
+</body>
+</html>

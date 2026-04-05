@@ -1,0 +1,297 @@
+<!-- Teoría Flop — contenido estático -->
+<div id="tab-teoria" class="section active">
+  <div class="section-title">TEORÍA FLOP</div>
+  <div class="section-sub">BTN vs BB · Single Raised Pot · In Position</div>
+
+        <div class="card">
+            <div class="card-title">Reglas Generales</div>
+            <div class="rule-grid">
+                <div class="rule-card">
+                    <div class="label">🃏 CBet</div>
+                    <p>Si dudamos de si cbet<strong>ear o no</strong>, hacerlo.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="label">📏 Tamaño</div>
+                    <p>Si dudamos de si apostar <strong>grande o pequeño</strong>, hacerlo pequeño.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="label">⚠️ Overfold</div>
+                    <p>Si el rival <strong>overfoldea</strong>, cuidado con las demás calles — ajustar rango.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="label">💰 EQ y tamaño</div>
+                    <p>A <strong>más equity</strong>, más quieres agrandar el bote.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Insights Clave</div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p><mark>Hay que ganar EV, no ganar la MANO.</mark> El objetivo no es proteger la mano sino maximizar EV en cada spot.</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p><mark>Cuanto más fácil sea de probetear de bluff en turn, más preferiremos apostarlos para evitar ese bluffing spot.</mark></p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p>A <strong>menos EQ → menos BET</strong> (controlar bote). A <strong>más EQ → más BET</strong> (agrandar bote).</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p>Siendo BTN, preferimos board <strong>rainbow</strong> porque como tienes más EQ y más estático sea el board, más veces se mantendrá esa equity hasta el river.</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p>Cuando pasamos de un board rainbow a FD siempre sera mas polarizado, ya sea aumentando el tamaño/ chequeando más.</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">🎯</span>
+                <p>Usar un tamaño mas pequeño hace que podamos tener mas cbet</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Estrategia General de Tamaños — Flop</div>
+            <table class="size-table">
+                <tr>
+                    <th>Tipo de Board</th>
+                    <th>Tamaño</th>
+                    <th>Estrategia</th>
+                </tr>
+                <tr>
+                    <td><strong>3 Broadways</strong></td>
+                    <td>Pequeño (40%)</td>
+                    <td><span class="badge badge-range">Mucho bet</span> Mucho bet a 40%</td>
+                </tr>
+                <tr>
+                    <td><strong>Broadway-Mid-Low (K72)</strong></td>
+                    <td>25%</td>
+                    <td><span class="badge badge-range">Range</span> Haremos range</td>
+                </tr>
+                <tr>
+                    <td>Boards <strong>Doblados Altos</strong></td>
+                    <td>25%</td>
+                    <td><span class="badge badge-range">Range</span> bet</td>
+                </tr>
+                <tr>
+                    <td>Boards <strong>Doblados Medios</strong></td>
+                    <td>25%/40%</td>
+                    <td><span class="badge badge-polar">Polarizado</span> No lo mismo K77 que 668ss</td>
+                </tr>
+                <tr>
+                    <td>Boards <strong>Doblados Bajos</strong></td>
+                    <td>40%</td>
+                    <td><span class="badge badge-range">Range</span> bet</td>
+                </tr>
+                <tr>
+                    <td><strong>765fd</strong> (muy coordinado)</td>
+                    <td>40%</td>
+                    <td><span class="badge badge-polar">Polarizado</span>Tanta coordinación → muchas cartas te joden</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- TABLA DE EJEMPLOS CON CARTAS -->
+        <div class="card">
+            <div class="card-title">Ejemplos de Boards — Aplicación Práctica</div>
+            <style>
+              .ex-table { width:100%; border-collapse:collapse; font-size:0.87rem; }
+              .ex-table th { background:var(--bg3); color:var(--accent); font-family:'Space Mono',monospace;
+                font-size:0.6rem; letter-spacing:1.5px; text-transform:uppercase; padding:0.6rem 0.9rem;
+                text-align:left; border-bottom:1px solid var(--border); }
+              .ex-table td { padding:0.65rem 0.9rem; border-bottom:1px solid rgba(37,43,59,0.4); vertical-align:middle; }
+              .ex-table tr:last-child td { border-bottom:none; }
+              .ex-table tr:hover td { background:rgba(255,255,255,0.02); }
+              /* mini playing cards */
+              .mc { display:inline-flex; flex-direction:column; align-items:center; justify-content:center;
+                width:28px; height:38px; background:#fff; border-radius:5px; font-family:'Space Mono',monospace;
+                font-size:0.72rem; font-weight:700; line-height:1.1;
+                box-shadow:0 1px 4px rgba(0,0,0,0.4); margin-right:2px; vertical-align:middle; flex-shrink:0; }
+              .mc.r { color:#e03e3e; }
+              .mc.b { color:#111; }
+              .mc .ms { font-size:0.85rem; }
+              .board-ex { display:inline-flex; align-items:center; gap:2px; }
+              .ex-strat-pill { display:inline-block; font-family:'Space Mono',monospace; font-size:0.62rem;
+                letter-spacing:1px; text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:5px; white-space:nowrap; }
+              .pill-range { background:rgba(80,250,123,0.15); color:var(--accent4); border:1px solid rgba(80,250,123,0.25); }
+              .pill-polar { background:rgba(255,107,107,0.15); color:var(--accent3); border:1px solid rgba(255,107,107,0.25); }
+              .pill-neutral { background:rgba(74,158,255,0.15); color:var(--accent2); border:1px solid rgba(74,158,255,0.25); }
+              .ex-note { font-size:0.8rem; color:var(--muted); margin-top:0.2rem; }
+            </style>
+
+            <table class="ex-table">
+              <tr>
+                <th>Board</th>
+                <th>Tipo</th>
+                <th>Size</th>
+                <th>Estrategia</th>
+                <th>Nota clave</th>
+              </tr>
+
+              <!-- 3 Broadways -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc b">K<span class="ms">♠</span></div>
+                    <div class="mc r">Q<span class="ms">♥</span></div>
+                    <div class="mc r">J<span class="ms">♦</span></div>
+                  </div>
+                </td>
+                <td><strong>3 Broadways</strong></td>
+                <td><span class="badge badge-range">40%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">Mucho bet, board conecta bien con BTN</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">A<span class="ms">♦</span></div>
+                    <div class="mc b">K<span class="ms">♣</span></div>
+                    <div class="mc b">T<span class="ms">♠</span></div>
+                  </div>
+                </td>
+                <td><strong>3 Broadways</strong></td>
+                <td><span class="badge badge-range">40%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">Ventaja de equity BTN clara</td>
+              </tr>
+
+              <!-- Broadway-Mid-Low -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc b">K<span class="ms">♠</span></div>
+                    <div class="mc r">7<span class="ms">♦</span></div>
+                    <div class="mc r">2<span class="ms">♥</span></div>
+                  </div>
+                </td>
+                <td><strong>Broadway-Mid-Low</strong></td>
+                <td><span class="badge badge-range">25%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">Dry rainbow, range con size pequeño</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">A<span class="ms">♥</span></div>
+                    <div class="mc b">6<span class="ms">♠</span></div>
+                    <div class="mc r">2<span class="ms">♦</span></div>
+                  </div>
+                </td>
+                <td><strong>Broadway-Mid-Low</strong></td>
+                <td><span class="badge badge-range">25%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">Dominio total BTN, range pequeño</td>
+              </tr>
+
+              <!-- Doblados Altos -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc b">K<span class="ms">♣</span></div>
+                    <div class="mc b">K<span class="ms">♠</span></div>
+                    <div class="mc r">7<span class="ms">♦</span></div>
+                  </div>
+                </td>
+                <td><strong>Doblado Alto</strong></td>
+                <td><span class="badge badge-range">25%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">Board estático, range 25% eficiente</td>
+              </tr>
+
+              <!-- Doblados Medios -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">7<span class="ms">♥</span></div>
+                    <div class="mc r">7<span class="ms">♦</span></div>
+                    <div class="mc b">2<span class="ms">♣</span></div>
+                  </div>
+                </td>
+                <td><strong>Doblado Medio</strong></td>
+                <td><span class="badge badge-polar">25-40%</span></td>
+                <td><span class="ex-strat-pill pill-polar">Polarizado</span></td>
+                <td class="ex-note">No lo mismo que 668ss, analizar</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc b">6<span class="ms">♠</span></div>
+                    <div class="mc b">6<span class="ms">♣</span></div>
+                    <div class="mc r">8<span class="ms">♥</span></div><span style="font-family:'Space Mono';font-size:0.6rem;color:var(--accent3);margin-left:3px;">ss</span>
+                  </div>
+                </td>
+                <td><strong>Doblado Medio</strong></td>
+                <td><span class="badge badge-polar">40%</span></td>
+                <td><span class="ex-strat-pill pill-polar">Polarizado</span></td>
+                <td class="ex-note">Con flush draw → tamaño mayor</td>
+              </tr>
+
+              <!-- Doblados Bajos -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">3<span class="ms">♥</span></div>
+                    <div class="mc r">3<span class="ms">♦</span></div>
+                    <div class="mc b">9<span class="ms">♣</span></div>
+                  </div>
+                </td>
+                <td><strong>Doblado Bajo</strong></td>
+                <td><span class="badge badge-range">40%</span></td>
+                <td><span class="ex-strat-pill pill-range">Range bet</span></td>
+                <td class="ex-note">BB no conecta, range grande</td>
+              </tr>
+
+              <!-- Muy coordinado -->
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">7<span class="ms">♥</span></div>
+                    <div class="mc b">6<span class="ms">♠</span></div>
+                    <div class="mc r">5<span class="ms">♦</span></div><span style="font-family:'Space Mono';font-size:0.6rem;color:var(--accent3);margin-left:3px;">fd</span>
+                  </div>
+                </td>
+                <td><strong>Muy coordinado</strong></td>
+                <td><span class="badge badge-polar">40%</span></td>
+                <td><span class="ex-strat-pill pill-polar">Polarizado</span></td>
+                <td class="ex-note">Demasiadas cartas que dañan al BTN</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="board-ex">
+                    <div class="mc r">8<span class="ms">♦</span></div>
+                    <div class="mc r">6<span class="ms">♥</span></div>
+                    <div class="mc r">5<span class="ms">♥</span></div>
+                  </div>
+                </td>
+                <td><strong>Muy coordinado</strong></td>
+                <td><span class="badge badge-polar">40%</span></td>
+                <td><span class="ex-strat-pill pill-polar">Polarizado</span></td>
+                <td class="ex-note">FD + OESD → polarizar, no range</td>
+              </tr>
+
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Lógica del Tamaño Grande</div>
+            <div class="insight">
+                <span class="insight-icon">🏆</span>
+                <p>Usar <strong>tamaño grande</strong> cuando: ventaja de nuts (overpairs, sets…), el value es vulnerable, no hay mucha mano media valuebeteable.</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">📏</span>
+                <p>Hay una zona elástica que paga a pequeño pero <strong>no a grande</strong>. Con medio bote o pequeño no castigas suficiente.</p>
+            </div>
+            <div class="insight">
+                <span class="insight-icon">💡</span>
+                <p>EV entre 75% y 110% es prácticamente el mismo, pero jugar <strong>range no</strong></p>
+            </div>
+        </div>
+        
+</div>
+
+<!-- ══════════ FLOP EJEMPLOS ══════════ -->
