@@ -9,7 +9,8 @@
 function showTab(id, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
+  const sec = document.getElementById('tab-' + id);
+  if (sec) sec.classList.add('active'); else console.warn('[tabs] No existe tab-' + id);
   if (btn) btn.classList.add('active');
   if (id === 'quiz') initQuiz();
   // Init ejemplos panels lazily
