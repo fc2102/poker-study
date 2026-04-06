@@ -11,6 +11,8 @@ function toggleAcc(btn) {
   btn.classList.toggle('open');
   const content = btn.nextElementSibling;
   if (content) content.classList.toggle('open');
+  // Mark event as handled to prevent delegation double-fire
+  if (event) event._accHandled = true;
 }
 // Generic desplegable for custom teoria blocks
 function toggleAcordeon(btn) {
@@ -30,9 +32,14 @@ function closeLightbox() { document.getElementById('lightbox').classList.remove(
 //  Backup: handles clicks even in dynamic DOM
 // ══════════════════════════════════════════════
 document.addEventListener('click', function(e) {
-  // Accordion buttons
+  // Skip if modal is open (avoid interference)
+  const modal = document.getElementById('modal-overlay');
+  if (modal && modal.classList.contains('open') && !modal.contains(e.target)) return;
+
+  // Accordion buttons — only fire if toggleAcc wasn't already called
   const accBtn = e.target.closest('.accordion-btn');
-  if (accBtn) {
+  if (accBtn && !e._accHandled) {
+    e._accHandled = true;
     accBtn.classList.toggle('open');
     const content = accBtn.nextElementSibling;
     if (content) content.classList.toggle('open');
@@ -40,9 +47,10 @@ document.addEventListener('click', function(e) {
   }
   // Flashcard flip
   const fc = e.target.closest('.fc-card-display');
-  if (fc) {
+  if (fc && !e._fcHandled) {
+    e._fcHandled = true;
     const ans = fc.querySelector('.fc-a-area');
     if (ans) ans.classList.toggle('show');
     return;
   }
-});
+}, true); // useCapture=true to fire before onclick
