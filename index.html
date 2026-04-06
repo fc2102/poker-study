@@ -32,9 +32,11 @@
 
 
 <!-- Teoría Flop — contenido estático -->
+
+<!-- Teoría Flop — contenido estático -->
 <div id="tab-teoria" class="section active">
   <div class="section-title">TEORÍA FLOP</div>
-        <div class="section-sub">BTN vs BB · Single Raised Pot · In Position</div>
+  <div class="section-sub">BTN vs BB · Single Raised Pot · In Position</div>
 
         <div class="card">
             <div class="card-title">Reglas Generales</div>
@@ -327,16 +329,12 @@
         
 </div>
 
-<!-- ══════════ FLOP EJEMPLOS ══════════ -->
-
-
+<!-- Flop Ejemplos — contenedor dinámico -->
 <div id="tab-flop-ej" class="section">
   <div class="section-title">FLOP EJEMPLOS</div>
   <div class="section-sub">Análisis board a board con solver</div>
   <div id="flop-ej-root"></div>
 </div>
-
-<!-- ══════════ TURN ══════════ -->
 
 <!-- Turn — teoría -->
 <div id="tab-turn" class="section">
@@ -421,16 +419,12 @@
   </div>
 </div>
 
-<!-- ══════════ TURN EJEMPLOS ══════════ -->
-
 <!-- Turn Ejemplos — contenedor dinámico -->
 <div id="tab-turn-ej" class="section">
   <div class="section-title">EJEMPLOS TURN</div>
   <div class="section-sub">Análisis de spots en Turn</div>
   <div id="turn-ej-root"></div>
 </div>
-
-<!-- ══════════ RIVER ══════════ -->
 
 <!-- River — teoría -->
 <div id="tab-river" class="section">
@@ -518,16 +512,12 @@
   </div>
 </div>
 
-<!-- ══════════ RIVER EJEMPLOS ══════════ -->
-
 <!-- River Ejemplos — contenedor dinámico -->
 <div id="tab-river-ej" class="section">
   <div class="section-title">EJEMPLOS RIVER</div>
   <div class="section-sub">Análisis de spots en River</div>
   <div id="river-ej-root"></div>
 </div>
-
-<!-- ══════════ QUIZ ══════════ -->
 
 <!-- Quiz — preguntas de repaso -->
 <div id="tab-quiz" class="section">
@@ -551,228 +541,6 @@
   </div>
 </div>
 
-</header>
-
-<main>
-
-
-<!-- ══════════ FLOP EJEMPLOS ══════════ -->
-<div id="tab-flop-ej" class="section">
-  <div class="section-title">FLOP EJEMPLOS</div>
-  <div class="section-sub">Análisis board a board con solver</div>
-  <div id="flop-ej-root"></div>
-</div>
-
-<!-- ══════════ TURN ══════════ -->
-<div id="tab-turn" class="section">
-  <div class="section-title">TURN</div>
-  <div class="section-sub">Teoría Turn — BTN IP</div>
-  <div class="section-title">TURN</div>
-  <div class="section-sub">Estrategia en el Turn — Ajustes tras el Flop</div>
-
-  <div class="street-header">
-    <span class="street-badge street-turn">TURN</span>
-    <span style="color:var(--muted);font-size:0.85rem;">Dinámica y ajustes de rango</span>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Cuando el rival overcalllea en Flop</div>
-    <div class="insight">
-      <span class="insight-icon">🔥</span>
-      <p>Aquí te están <strong>overcalleando</strong> — hay que ser muy agresivo en turn. Su rango está debilitado y sobre-representado en manos medias que no pueden seguir pagando mucho.</p>
-    </div>
-    <div class="solver-img-wrap">
-      <div class="solver-img-label">📊 Solver — Turn agresivo tras overcall en flop</div>
-      <img src="images/image7.png" alt="Turn overcall" onclick="openLightbox(this)">
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Manos Concretas en Turn</div>
-    <div class="accordion">
-      <button class="accordion-btn" onclick="toggleAcc(this)">
-        KTo con el K del palo
-        <span class="chevron">▼</span>
-      </button>
-      <div class="accordion-content">
-        <div class="insight">
-          <span class="insight-icon">🔒</span>
-          <p><strong>KTo con el K del palo no se tira ni peter.</strong> Tiene suficiente equity y blockers para continuar. Es un call claro independientemente del tamaño.</p>
-        </div>
-      </div>
-    </div>
-    <div class="accordion">
-      <button class="accordion-btn" onclick="toggleAcc(this)">
-        Q9o, 6x: fold claro
-        <span class="chevron">▼</span>
-      </button>
-      <div class="accordion-content">
-        <div class="insight">
-          <span class="insight-icon">🚫</span>
-          <p><strong>Q9o, 6x → ni de coña.</strong> Sin suficiente equity ni posibilidad de mejorar a manos ganadoras. Fold sin dudar.</p>
-        </div>
-      </div>
-    </div>
-    <div class="accordion">
-      <button class="accordion-btn" onclick="toggleAcc(this)">
-        K3s — Cuándo betear vs check
-        <span class="chevron">▼</span>
-      </button>
-      <div class="accordion-content">
-        <div class="insight">
-          <span class="insight-icon">🎲</span>
-          <p>Cuanto más <strong>agresivo</strong> sea el tipo, más incentivo de betear (no le das la vuelta fácilmente en turn). Cuanto más <strong>pasivo</strong>, más fácil es robar en turn cuando pone face-up su mano.</p>
-        </div>
-        <div class="insight">
-          <span class="insight-icon">⚠️</span>
-          <p>K3 de diamantes: <strong>chequear</strong> porque no le gusta que le check-raiseen. Pero 87 de diamantes sí prefiere betear porque no sufre al raise y tiene más EQ.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Delayed CBet en Turn</div>
-    <div class="insight">
-      <span class="insight-icon">⏰</span>
-      <p>En boards donde no hay thin value, si el rival paga más o menos bien pero en la delayed apuesta de más los Ax (debería chequear mucho más thin value), los manos de 0EQ tienen <strong>más incentivo a delayear</strong>.</p>
-    </div>
-    <div class="insight">
-      <span class="insight-icon">💡</span>
-      <p>En este tipo de boards los <strong>bluffs funcionan mejor a la delayed</strong>. Rainbow → mucho más tamaño pequeño. Con FD → aumentar más el tamaño.</p>
-    </div>
-    <div class="solver-img-wrap">
-      <div class="solver-img-label">📊 Solver — Delayed CBet Turn</div>
-      <img src="images/image9.png" alt="Delayed cbet" onclick="openLightbox(this)">
-    </div>
-  </div>
-</div>
-
-<!-- ══════════ TURN EJEMPLOS ══════════ -->
-<div id="tab-turn-ej" class="section">
-  <div class="section-title">EJEMPLOS TURN</div>
-  <div class="section-sub">Análisis de spots en Turn</div>
-  <div id="turn-ej-root"></div>
-</div>
-
-<!-- ══════════ RIVER ══════════ -->
-<div id="tab-river" class="section">
-  <div class="section-title">RIVER</div>
-  <div class="section-sub">Teoría River — BTN IP</div>
-  <div class="section-title">RIVER</div>
-  <div class="section-sub">Estrategia en el River — Valor y Bluffs</div>
-
-  <div class="street-header">
-    <span class="street-badge street-river">RIVER</span>
-    <span style="color:var(--muted);font-size:0.85rem;">Construcción de rango final</span>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Dinámica Tras Check-Check en Flop</div>
-    <div class="solver-img-wrap">
-      <div class="solver-img-label">📊 Solver — Check-Check flop scenario</div>
-      <img src="images/image3.png" alt="Check check" onclick="openLightbox(this)">
-    </div>
-    <div class="insight" style="margin-top:1rem;">
-      <span class="insight-icon">🧠</span>
-      <p>Tras check-check el BB va a <strong>pobretear de más</strong> porque ha checkeado puro QJ, QT... no lo va a hacer en realidad. También los FDs van mixed y no va a valuebet tanto como el solver mete A6o o A7o.</p>
-    </div>
-    <div class="insight">
-      <span class="insight-icon">💡</span>
-      <p>Con todo esto vemos que <strong>tienen más incentivo de chequear manos medias</strong> del estilo A4, A3 para que el BB se pase blufeando.</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Construcción de Rango de Value en River</div>
-    <div class="accordion">
-      <button class="accordion-btn" onclick="toggleAcc(this)">
-        Sin thin value — ¿Qué hacer?
-        <span class="chevron">▼</span>
-      </button>
-      <div class="accordion-content">
-        <div class="insight">
-          <span class="insight-icon">📊</span>
-          <p>No hay thin value, y el rival paga más o menos bien. Entonces si el rival paga razonablemente, los bluffs puros tienen más incentivo con delayed bets ya que el rival no ajustará su rango correctamente.</p>
-        </div>
-      </div>
-    </div>
-    <div class="accordion">
-      <button class="accordion-btn" onclick="toggleAcc(this)">
-        Zona de FDs en River
-        <span class="chevron">▼</span>
-      </button>
-      <div class="accordion-content">
-        <div class="insight">
-          <span class="insight-icon">♦️</span>
-          <p>Los FDs van <strong>mixed</strong> en river — no sólo bluffs, algunos se convierten en value, otros siguen siendo bluffs dependiendo del runout y el rango del rival.</p>
-        </div>
-      </div>
-    </div>
-    <div class="accordion">
-      <button class="accordion-btn" onclick="toggleAcc(this)">
-        Axo Bajos — No sobrevalorar
-        <span class="chevron">▼</span>
-      </button>
-      <div class="accordion-content">
-        <div class="insight">
-          <span class="insight-icon">⚠️</span>
-          <p><strong>Axo bajos — no sobrevalorarlos</strong> y meterlos bastantes (A4o-A7o muy a menudo). Son buenos bluffs en muchos runouts pero en river es importante no exagerar su valor como mano hecha.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Zona FDs — Manos que Check vs Bet</div>
-    <div class="two-col">
-      <div>
-        <div class="label" style="font-family:'Space Mono';font-size:0.65rem;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:0.6rem;">⏸️ Preferir Check</div>
-        <span class="hand-chip chip-check">AK de FD</span>
-        <span class="hand-chip chip-check">KQ de FD</span>
-        <p style="font-size:0.82rem;color:var(--muted);margin-top:0.5rem;line-height:1.5;">Bloqueas Axo con el palo (inelástico), bloqueas set up favorable. No sabemos si son value o bluff.</p>
-      </div>
-      <div>
-        <div class="label" style="font-family:'Space Mono';font-size:0.65rem;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:0.6rem;">✅ Preferir Bet</div>
-        <span class="hand-chip chip-bluff">87♦</span>
-        <span class="hand-chip chip-bluff">86♦</span>
-        <span class="hand-chip chip-value">FDs con EQ</span>
-        <p style="font-size:0.82rem;color:var(--muted);margin-top:0.5rem;line-height:1.5;">Más EQ, no sufren al raise, generan fold equity en manos medias del rival.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════ RIVER EJEMPLOS ══════════ -->
-<div id="tab-river-ej" class="section">
-  <div class="section-title">EJEMPLOS RIVER</div>
-  <div class="section-sub">Análisis de spots en River</div>
-  <div id="river-ej-root"></div>
-</div>
-
-<!-- ══════════ QUIZ ══════════ -->
-<div id="tab-quiz" class="section">
-  <div class="section-title">PRÁCTICA</div>
-  <div class="section-sub">Pon a prueba tu conocimiento</div>
-  <div class="quiz-wrap">
-    <div class="quiz-progress">
-      <div>
-        <div class="prog-text" id="quiz-prog-text">Pregunta 1 / 15</div>
-        <div class="prog-bar-track"><div class="prog-bar-fill" id="quiz-prog-bar" style="width:0%"></div></div>
-      </div>
-      <div class="score-badge" id="quiz-score-badge">✓ 0 / ✗ 0</div>
-    </div>
-    <div id="quiz-container"></div>
-    <div class="quiz-result" id="quiz-result">
-      <div class="result-score" id="result-pct">—</div>
-      <div class="result-label">de respuestas correctas</div>
-      <div class="result-msg" id="result-msg">—</div>
-      <button class="restart-btn" onclick="restartQuiz()">↺ Volver a empezar</button>
-    </div>
-  </div>
-</div>
-
-
 <!-- ════ ANKI ════ -->
 <div id="tab-anki" class="section">
   <div class="section-title">REPASO RÁPIDO</div>
@@ -786,9 +554,7 @@
         Intenta recordar la estrategia antes de revelar la respuesta.<br>
         Califica cada card como <strong style="color:var(--accent4);">Fácil</strong> o <strong style="color:var(--accent3);">Difícil</strong> para programar el próximo repaso.
       </p>
-      <button class="btn-save" onclick="openAnkiMode()" style="font-size:0.9rem;padding:0.85rem 2.5rem;border-radius:12px;">
-        ▶ Empezar sesión
-      </button>
+      <button class="btn-save" onclick="openAnkiMode()" style="font-size:0.9rem;padding:0.85rem 2.5rem;border-radius:12px;">▶ Empezar sesión</button>
     </div>
     <div id="anki-board-count" style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted);margin-top:1rem;letter-spacing:1px;"></div>
   </div>
@@ -800,7 +566,6 @@
   <div class="section-sub">Heatmap 13×13 por board</div>
   <div id="heatmap-board-list"></div>
 </div>
-
 </main>
 
 </main>
