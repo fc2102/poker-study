@@ -8,11 +8,10 @@
 // ══════════════════════════════════════════════
 function toggleAcc(btn) {
   if (!btn || !btn.classList) return;
+  btn._handled = true;
   btn.classList.toggle('open');
   const content = btn.nextElementSibling;
   if (content) content.classList.toggle('open');
-  // Mark event as handled to prevent delegation double-fire
-  if (event) event._accHandled = true;
 }
 // Generic desplegable for custom teoria blocks
 function toggleAcordeon(btn) {
@@ -36,13 +35,15 @@ document.addEventListener('click', function(e) {
   const modal = document.getElementById('modal-overlay');
   if (modal && modal.classList.contains('open') && !modal.contains(e.target)) return;
 
-  // Accordion buttons — only fire if toggleAcc wasn't already called
+  // Accordion buttons — handles both static and dynamic accordions
   const accBtn = e.target.closest('.accordion-btn');
-  if (accBtn && !e._accHandled) {
-    e._accHandled = true;
+  if (accBtn) {
+    // Prevent double-fire if toggleAcc(this) already handled it
+    if (accBtn._handled) { accBtn._handled = false; return; }
     accBtn.classList.toggle('open');
     const content = accBtn.nextElementSibling;
     if (content) content.classList.toggle('open');
+    e.stopPropagation();
     return;
   }
   // Flashcard flip

@@ -218,7 +218,7 @@ function renderHandContent(street, id) {
   // Sections (accordions)
   let sectionsHtml = (hand.sections||[]).map(s => `
     <div class="accordion" style="margin-bottom:0.75rem;">
-      <button class="accordion-btn" onclick="toggleAcc(this)">${s.title}<span class="chevron">▼</span></button>
+      <button class="accordion-btn" data-acc="1">${s.title}<span class="chevron">▼</span></button>
       <div class="accordion-content"><div style="font-size:0.9rem;line-height:1.65;">${s.content}</div></div>
     </div>`).join('');
 
